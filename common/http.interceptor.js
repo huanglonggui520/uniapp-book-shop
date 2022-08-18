@@ -33,7 +33,7 @@ const install = (Vue, vm) => {
 		// 所以哪怕您重新登录修改了Storage，下一次的请求将会是最新值
 		// const token = uni.getStorageSync('token');
 		// config.header.token = token;
-		config.header.Token = 'xxxxxx';
+		config.header.Authorization = 'Bearer'+"token";
 		
 		// 可以对某个url进行特别处理，此url参数为this.$u.get(url)中的url值
 		if(config.url == '/user/login') config.header.noToken = true;
@@ -51,10 +51,28 @@ const install = (Vue, vm) => {
 			return data
 		}
 		else if(statusCode===401) {
-			// vm.$u.toast("验证失败")
+			vm.$u.toast("验证失败,请重新登录")
+			return false
+		}else if(statusCode===400) {
+			vm.$u.toast(data.message)
+			return false
+		}else 
+		//  请求参数未通过验证
+		if(statusCode===422){
+			const {errors}=data
+			const err=Object.values(errors)[0][0]
+			vm.$u.toast(err)
 			return false
 		}
 }
+	// 挂着patch请求
+	vm.$u.patch=(url,params={})=>{
+		const _params={
+			...params,
+			_method:'PATCH'
+		}
+		return vm.$u.post(url,_params)
+	}
 }
 
 export default {

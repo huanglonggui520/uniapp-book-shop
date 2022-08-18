@@ -1,6 +1,9 @@
 <template>
 	<view class="content">
-		<u-button>月落</u-button>
+		<!-- 轮播图 -->
+		<view class="swiper">
+			<u-swiper :list="list" mode="dot"></u-swiper>
+		</view>
 	</view>
 </template>
 
@@ -8,15 +11,18 @@
 	export default {
 		data() {
 			return {
-				
+				list:[]
 			}
 		},
 		async onLoad() {
-			const r=await this.$u.get('https://api.shop.eduwork.cn/api/index')
+			console.log(this)
+			const result=await this.$u.api.getIndex('/api/index')
+			result.slides.forEach((item)=>{
+				this.list.push(item.img_url)
+			})
 			
-				console.log(r)
-			
-			
+			// this.list=result.slides.url
+			console.log(result.slides[0].img_url)
 		},
 		methods: {
 
@@ -25,29 +31,5 @@
 </script>
 
 <style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+	
 </style>
