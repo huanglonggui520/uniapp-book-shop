@@ -1,3 +1,9 @@
+<!-- <template>
+	<view>
+		<router-view></router-view>
+	</view>
+</template> -->
+
 <script>
 	export default {
 		onLaunch: function() {
@@ -19,5 +25,6 @@
 	.u-indicator-item-dot-active{
 		background-color: #5589FA !important
 	}
-	// @import "./static/font/iconfont.css"
+	
+
 </style>

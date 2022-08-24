@@ -4,14 +4,20 @@ import App from './App'
 import Vue from 'vue'
 import uView from "uview-ui";
 import store from './store'
+import {router,RouterMount} from './router/router.js'  //路径换成自己的
+Vue.use(router)
+
+// @import './static/iconfont/'
+import './static/iconfont/font_3597033_9p7cjz1kcc8/iconfont.css'
 Vue.use(uView);
 Vue.config.productionTip = false
 App.mpType = 'app'
 const app = new Vue({
     ...App,
-	store
+	store,
+	// router:router
 })
-
+RouterMount(app,router,'#app')
 // http拦截器，此为需要加入的内容，如果不是写在common目录，请自行修改引入路径
 import httpInterceptor from '@/common/http.interceptor.js'
 // 这里需要写在最后，是为了等Vue创建对
