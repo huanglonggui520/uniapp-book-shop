@@ -1,13 +1,11 @@
-<!-- <template>
-	<view>
-		<router-view></router-view>
-	</view>
-</template> -->
+
 
 <script>
 	export default {
 		onLaunch: function() {
-			console.log('App Launch')
+			    const deviceWidth = document.documentElement.clientWidth || document.body.clientWidth;
+			    document.querySelector('html').style.fontSize = deviceWidth / 7.5 + 'px';
+
 		},
 		onShow: function() {
 			console.log('App Show')

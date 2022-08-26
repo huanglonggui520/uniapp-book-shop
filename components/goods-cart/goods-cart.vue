@@ -1,17 +1,17 @@
 <template>
 	<view>
-		<view class="goods ">
-			<u-image  width="100%" height="300rpx" mode :src="item.cover_url" class="u-skeleton-fillet">
-				<view slot="error" style="font-size: 24rpx;">图片加载失败</view>
+		<view class="goods " @tap="goshop">
+			<u-image  width="100%" height="300rpx" mode="aspectFit" :src="item.cover_url" class="u-skeleton-fillet">
+				<view slot="error" style="font-size: 24rpx;"></view>
 			</u-image>
-			<view class="u-line-1 title u-skeleton-fillet">{{item.title ? item.title : '商称'}}</view>
+			<view class="u-line-1 title u-skeleton-fillet">{{item.title}}</view>
 			<view class="goods-money">
 				<text class="goods-money-title u-skeleton-fillet">
 					<text class="goods-money-f">¥</text>
-					<text class="goods-money-t" >{{item.price ? item.price : '商品价格'}}</text>
+					<text class="goods-money-t" >{{item.price}}</text>
 				</text>
 				<text class="iconfont icon-shoucang sc u-skeleton-fillet">
-					 <text>{{item.collects_count ? item.collects_count : '收藏人数'}}</text>
+					 <text>{{item.collects_count}}</text>
 				</text>
 			</view>
 		</view>
@@ -29,6 +29,16 @@
 				}
 			}
 		},
+		methods:{
+				goshop(){
+					this.$router.push({
+						path:'/pages/details/details',
+						query:{
+							id:this.item.id
+						}
+					})
+				}
+		},
 		data() {
 			return {
 				
@@ -39,24 +49,24 @@
 
 <style scoped>
 .goods-money-f{
-		font-size: 16rpx;
+		font-size: 25rpx;
 		color: red;
 		margin-right: 4rpx;
 	}
 	.goods-money-t{
-		font-size: 18rpx;
+		font-size: 30rpx;
 		margin-right: 10rpx;
 		color: red;
 	}
 	.sc {
 		/* color: red; */
-		font-size: 18rpx;
+		font-size: 26rpx;
 	}
 	.sc text{
 		color: #63707D;
 	}
 	.title{
-		font-size: 22rpx;
+		font-size: 34rpx;
 		color: #76828E;
 		margin-top: 10rpx;
 	}
@@ -65,7 +75,7 @@
 		padding: 0rpx 20rpx;
 	}
 	.goods-money{
-		line-height: 16rpx;
+		line-height: 30rpx;
 		margin-top: 6rpx;
 		/* font-size: 16rpx */
 	}

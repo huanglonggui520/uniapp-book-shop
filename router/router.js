@@ -8,11 +8,13 @@ const router = createRouter({
 });
 //全局路由前置守卫
 router.beforeEach((to, from, next) => {
-	console.log(from)
+	// console.log('1234567890',from)
+	console.log('888',to)
 	if(to.path==='/pages/auth/login/login'){
-		uni.setStorageSync('topath',from.path)
+		uni.setStorageSync('topath',from.fullPath)
 	}
-	if(to.path==='/pages/home/home' || to.path==='/pages/cart/cart'){
+	if(to.meta.auth){
+		console.log('需要登录')
 		if(uni.getStorageSync('token')){
 			next()
 		}else{
@@ -25,9 +27,9 @@ router.beforeEach((to, from, next) => {
 				icon:'none'
 			})
 			setTimeout(()=>{
-					next({
-						path:'/pages/auth/login/login',
-					})
+				uni.switchTab({
+					url:'/pages/auth/login/login'
+				})
 			},1500)
 			
 			

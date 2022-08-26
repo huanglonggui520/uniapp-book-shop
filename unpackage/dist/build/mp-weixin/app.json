@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/home/home",
     "pages/goods/goods",
-    "pages/cart/cart"
+    "pages/cart/cart",
+    "pages/auth/login/login",
+    "pages/auth/register/register",
+    "pages/home/baseInfo"
   ],
   "subPackages": [],
   "window": {

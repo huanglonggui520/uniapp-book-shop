@@ -9,14 +9,16 @@ const actions = {
 const mutations = {
 	// 保存用户信息
 	SETUSER(state,value){
-		
+		// state.userInfo={}
 		state.userInfo=value
-		console.log(state,value)
-	}
+		// console.log(state,value)
+	},
+	
 }
 //准备state对象——保存具体的数据
 const state = {
-	userInfo:{}
+	userInfo:{},
+	
 }
 
 //创建并暴露store

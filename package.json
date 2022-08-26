@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "node-sass": "^7.0.1",
+    "postcss-px-to-viewport": "^1.1.1",
     "sass-loader": "^13.0.2"
   },
   "dependencies": {

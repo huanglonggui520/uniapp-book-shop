@@ -1,30 +1,33 @@
 <template>
 	<view class="content">
+		<!-- <tabar></tabar> -->
 		<!-- 轮播图 -->
 		<view class="swiper" >
 			<u-swiper :list="list" mode="dot" height='320' name='img_url'></u-swiper>
 			
 		</view>
 		<!-- tar排序 -->
-		<view class="u-margin-top-x == u-m-t-12">
-			<u-tabs  :list="tablist" font-size="30" bar-width="60" u-sticky :is-scroll="false" :current="current" @change="change"></u-tabs>
-		</view>
-		<!-- 商品列表 -->
+		<u-sticky :offset-top='-12'>
+			<view class="u-margin-top-x == u-m-t-12">
+				<u-tabs  :list="tablist" font-size="30" bar-width="60" u-sticky :is-scroll="false" :current="current" @change="change"></u-tabs>
+			</view>
+		</u-sticky>
 		
+		<!-- 商品列表 -->
 			<view class="wrap u-skeleton" >
 				<u-row gutter="16" class="u-margin-top-100">
-							<u-col span="6" v-for="(item,index) in goods.length !==0 ? goods : [{},{},{},{},{},{}]">
-								<navigator>
+							<u-col span="6" v-for="(item,index) in  goods">
+								
 									<goods-cart :item='item'></goods-cart>
-								</navigator>
+								
 							</u-col>
 						</u-row> 
 			</view>
 		<text class="loading" v-show="isshow">
-			正在加载中...
+			{{toast}}
 		</text>
 		
-	    <u-back-top :scroll-top="scrollTop" :icon-style="{color: '#2979ff',fontSize:'40rpx'}"></u-back-top>
+	    <u-back-top :scroll-top="scrollTop" :icon-style="{color: '#2979ff',fontSize:'60rpx'}"></u-back-top>
 		<u-skeleton :loading="isloading" :animation="true"></u-skeleton>
 </view>
 </template>
@@ -36,6 +39,7 @@
 			return {
 				list:[],
 				goods:[],
+				toast:'加载更多...',
 				isshow:false,
 				pages:1,
 				scrollTop: 0,
@@ -51,8 +55,6 @@
 						name:'精选'
 					}],
 					current: 0
-					
-				
 			}
 		},
 		onReachBottom(){
@@ -67,7 +69,11 @@
 				this.scrollTop = e.scrollTop;
 			},
 		onLoad() {
+			
+			// console.log(this.$refs.content)
+			// this.isloading=true
 			this.getdata()
+			
 		},
 		methods: {
 			change(index){
@@ -79,7 +85,7 @@
 				},
 				//获取页面数据
 			async getdata(){
-				this.isloading=true
+				
 				const params={
 					pages:this.pages
 				}
@@ -92,13 +98,16 @@
 					params.recommend=1
 				}
 				const result=await this.$u.api.getIndex(params)
-				this.isloading=false
-				console.log(result)
+				
+				// console.log(result)
 				this.list=result.slides
 				// this.goods.push(result.goods.data)
 				this.goods=[...this.goods,...result.goods.data]
 				// this.list=result.slides.url
-				console.log(result.goods.data)
+				this.isloading=false
+				// console.log(result.goods.data)
+				this.isshow=false
+				// if(result.goods.data.length)
 			}
 		}
 	}
@@ -110,10 +119,23 @@
 	/* margin: 0rpx auto; */
 	font-size: 32rpx;
 	color: darkgrey;
+	/* height: 100px; */
 	/* transform: t; */
+	/* margin-bottom: 100rpx; */
 	margin-left: 40%;
+	/* margin-bottom: 100px; */
 	/* transform: translateX(-50%); */
 	/* width: 1; */
 }
-
+.content{
+	margin-bottom: 10rpx;
+}
+.sticky {
+		width: 750rpx;
+		height: 120rpx;
+		background-color: #2979ff;
+		color: #fff;
+		padding: 24rpx;
+	}
+	
 </style>

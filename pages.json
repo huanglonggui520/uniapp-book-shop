@@ -9,14 +9,19 @@
 		}
 	    ,{
             "path" : "pages/home/home",
+			"name":"home",
+			"meta": {
+				"auth":true
+			},
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "个人中心",
                 "enablePullDownRefresh": false
+				
             }
             
-        }
-        ,{
+        },
+        {
             "path" : "pages/goods/goods",
             "style" :                                                                                    
             {
@@ -27,6 +32,9 @@
         }
         ,{
             "path" : "pages/cart/cart",
+			"meta":{
+				"auth":true
+			},
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "购物车",
@@ -36,17 +44,49 @@
         },
 		{
 		    "path" : "pages/auth/login/login",
+			"name":"login",
 		    "style" :                                                                                    
 		    {
 		        "navigationBarTitleText": "用户登录",
 		        "enablePullDownRefresh": false
 		    }
-			
-		    
 		}
         
         ,{
             "path" : "pages/auth/register/register",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "注册用户",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/home/baseInfo",
+			"name":"baseInfo",
+			"meta":{
+				"auth":true
+			},
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "编辑资料",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/details/details",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "商品详情",
+                "enablePullDownRefresh": false
+				
+            }
+            
+        }
+        
+        ,{
+            "path" : "pages/reply/reply",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -70,30 +110,34 @@
 	"tabBar": {
 			"backgroundColor": "#F6F6F6",
 			"borderStyle": "white",
+			// "fontSize": "20rpx",
+			// "height": "100rpx",
+			// "spacing": "6rpx",
+			// "iconWidth": "48rpx",
 			"color": "#455464",
 			"selectedColor": "#5589FA",
 			"list": [
 				{
-					"iconPath": "static/tabarFont/3.1首页.png",
-					"selectedIconPath": "static/tabarFont/3.1首页-选中.png",
+					"iconPath": "static/tabarFont/3.1index.png",
+					"selectedIconPath": "static/tabarFont/3.1index_z.png",
 					"text": "首页",
 					"pagePath": "pages/index/index"
 				},
 				{
-					"iconPath": "static/tabarFont/分类.png",
-					"selectedIconPath": "static/tabarFont/分类 (1).png",
+					"iconPath": "static/tabarFont/goods_z.png",
+					"selectedIconPath": "static/tabarFont/goods.png",
 					"text": "分类",
 					"pagePath": "pages/goods/goods"
 				},
 				{
-					"iconPath": "static/tabarFont/3.1购物车.png",
-					"selectedIconPath":"static/tabarFont/3.1购物车-选中.png",
+					"iconPath": "static/tabarFont/3.1cart.png",
+					"selectedIconPath":"static/tabarFont/3.1cart_z.png",
 					"text": "购物车",
 					"pagePath": "pages/cart/cart"
 				},
 				{
-					"iconPath": "static/tabarFont/我的.png",
-					"selectedIconPath": "static/tabarFont/我的大麦激活.png",
+					"iconPath": "static/tabarFont/home.png",
+					"selectedIconPath": "static/tabarFont/home_z.png",
 					"text": "我的",
 					"pagePath": "pages/home/home"
 				}

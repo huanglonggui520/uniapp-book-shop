@@ -12,10 +12,15 @@ const install = (Vue, vm) => {
 	const login = (params = {}) => vm.$u.post('api/auth/login', params);
 	const getuser = (params = {}) => vm.$u.get('api/user', params);
 	const register = (params = {}) => vm.$u.post('api/auth/register', params);
+	const baseuser = (params = {}) => vm.$u.put('api/user', params);
+	const logout = (params = {}) => vm.$u.post('/api/auth/logout', params);
+	const getoss = (params = {}) => vm.$u.get('/api/auth/oss/token', params);
+	const baseavatar = (params = {}) => vm.$u.post('/api/user/avatar', params);
 	// 将各个定义的接口名称，统一放进对象挂载到vm.$u.api(因为vm就是this，也即this.$u.api)下
-	vm.$u.api = {getIndex,login,getuser,register};
+	const getgood = (goods = {}) => vm.$u.get(`/api/goods/${goods}`);
+	const collect = (goods = {}) => vm.$u.post(`/api/collects/goods/${goods}`);
+	vm.$u.api = {getIndex,login,collect,getuser,register,baseuser,getgood,logout,getoss,baseavatar};
 }
-
 export default {
 	install
 }
