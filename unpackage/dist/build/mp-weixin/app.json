@@ -6,7 +6,13 @@
     "pages/cart/cart",
     "pages/auth/login/login",
     "pages/auth/register/register",
-    "pages/home/baseInfo"
+    "pages/home/baseInfo",
+    "pages/details/details",
+    "pages/reply/reply",
+    "pages/preview/preview",
+    "pages/address/address",
+    "pages/address/address",
+    "pages/showorders/showorders"
   ],
   "subPackages": [],
   "window": {
@@ -22,31 +28,30 @@
     "selectedColor": "#5589FA",
     "list": [
       {
-        "iconPath": "static/tabarFont/3.1首页.png",
-        "selectedIconPath": "static/tabarFont/3.1首页-选中.png",
+        "iconPath": "static/tabarFont/3.1index.png",
+        "selectedIconPath": "static/tabarFont/3.1index_z.png",
         "text": "首页",
         "pagePath": "pages/index/index"
       },
       {
-        "iconPath": "static/tabarFont/分类.png",
-        "selectedIconPath": "static/tabarFont/分类 (1).png",
+        "iconPath": "static/tabarFont/goods_z.png",
+        "selectedIconPath": "static/tabarFont/goods.png",
         "text": "分类",
         "pagePath": "pages/goods/goods"
       },
       {
-        "iconPath": "static/tabarFont/3.1购物车.png",
-        "selectedIconPath": "static/tabarFont/3.1购物车-选中.png",
+        "iconPath": "static/tabarFont/3.1cart.png",
+        "selectedIconPath": "static/tabarFont/3.1cart_z.png",
         "text": "购物车",
         "pagePath": "pages/cart/cart"
       },
       {
-        "iconPath": "static/tabarFont/我的.png",
-        "selectedIconPath": "static/tabarFont/我的大麦激活.png",
+        "iconPath": "static/tabarFont/home.png",
+        "selectedIconPath": "static/tabarFont/home_z.png",
         "text": "我的",
         "pagePath": "pages/home/home"
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

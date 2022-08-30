@@ -18,8 +18,34 @@ const install = (Vue, vm) => {
 	const baseavatar = (params = {}) => vm.$u.post('/api/user/avatar', params);
 	// 将各个定义的接口名称，统一放进对象挂载到vm.$u.api(因为vm就是this，也即this.$u.api)下
 	const getgood = (goods = {}) => vm.$u.get(`/api/goods/${goods}`);
+	const getcarts = (params = {}) => vm.$u.get('/api/carts',params);
+	const getgoods = (params = {}) => vm.$u.get('/api/goods',params);
+	const addcarts = (params = {}) => vm.$u.post('/api/carts',params);
+	const getcartslist = (params = {}) => vm.$u.get('/api/carts/?include=goods',params);
 	const collect = (goods = {}) => vm.$u.post(`/api/collects/goods/${goods}`);
-	vm.$u.api = {getIndex,login,collect,getuser,register,baseuser,getgood,logout,getoss,baseavatar};
+	const showorders=(order = {}) => vm.$u.get(`/api/orders/${order}?include=goods,user，orderDetails,address`)
+	const deletecart = (cart = {}) => vm.$u.delete(`/api/carts/${cart}`);
+	const getpreview = (params = {}) => vm.$u.get('/api/orders/preview',params);
+	const getchecked = (cart_ids = {}) => vm.$u.post('/api/carts/checked',cart_ids);
+	const submitorder = (params = {}) => vm.$u.post('/api/orders',params);
+	vm.$u.api = {
+		getcarts,
+		showorders,
+		submitorder,
+		getpreview,
+		getcartslist,
+		getchecked,
+		deletecart,
+		getgoods,
+		getIndex,
+		addcarts,
+		login,
+		collect,
+		getuser,
+		register,
+		baseuser,
+		getgood,
+		logout,getoss,baseavatar};
 }
 export default {
 	install

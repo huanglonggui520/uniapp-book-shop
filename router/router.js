@@ -27,7 +27,7 @@ router.beforeEach((to, from, next) => {
 				icon:'none'
 			})
 			setTimeout(()=>{
-				uni.switchTab({
+				uni.navigateTo({
 					url:'/pages/auth/login/login'
 				})
 			},1500)

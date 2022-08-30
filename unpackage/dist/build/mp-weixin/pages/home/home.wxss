@@ -1,1 +1,1 @@
-page{background-color:#ededed}.button{width:90%;margin:20px auto}.user-box{background-color:#fff}
+page{background-color:#ededed}.button{width:90%;margin:25rpx auto}.avimg{width:140rpx;height:140rpx;border-radius:50%}.avimg ._img{width:140rpx;height:140rpx;border-radius:50%}.user-box{background-color:#fff}

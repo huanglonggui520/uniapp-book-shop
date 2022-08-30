@@ -2,6 +2,7 @@
   "navigationBarTitleText": "图书商城",
   "usingComponents": {
     "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
+    "u-sticky": "/uview-ui/components/u-sticky/u-sticky",
     "u-tabs": "/uview-ui/components/u-tabs/u-tabs",
     "u-row": "/uview-ui/components/u-row/u-row",
     "u-col": "/uview-ui/components/u-col/u-col",

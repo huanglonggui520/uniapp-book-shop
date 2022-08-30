@@ -1,6 +1,7 @@
 //vue.config.js
 const TransformPages = require('uni-read-pages')
 const {webpack} = new TransformPages()
+// 使用uni-read-pages可以先pages中添加属性
 module.exports = {
 	configureWebpack: {
 		plugins: [
