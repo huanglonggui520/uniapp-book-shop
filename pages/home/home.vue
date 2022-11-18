@@ -1,6 +1,6 @@
 <template>
 	<view>
-		
+
 		<view class="u-flex user-box u-p-t-10 bo u-p-l-30 u-p-r-20 u-p-b-30 u-margin-top-20">
 			<view class="u-m-r-10 avimg">
 				<oss-upload></oss-upload>
@@ -14,19 +14,19 @@
 				<u-icon name="scan" color="#969799" size="28"></u-icon>
 			</view> -->
 		</view>
-		
+
 		<view class="u-m-t-20">
 			<u-cell-group>
-				<u-cell-item  title="个人信息" @tap="toInfo"></u-cell-item>
+				<u-cell-item title="个人信息" @tap="toInfo"></u-cell-item>
 			</u-cell-group>
 		</view>
 		<view class="u-m-t-20">
 			<u-cell-group>
-				<u-cell-item  title="我的订单"></u-cell-item>
-				<u-cell-item  title="我的收藏"></u-cell-item>
-				<u-cell-item  title="地址管理"></u-cell-item>
-				<u-cell-item  title="账号安全"></u-cell-item>
-				<u-cell-item  title="关于我们"></u-cell-item>
+				<u-cell-item title="我的订单"></u-cell-item>
+				<u-cell-item title="我的收藏"></u-cell-item>
+				<u-cell-item title="地址管理"></u-cell-item>
+				<u-cell-item title="账号安全"></u-cell-item>
+				<u-cell-item title="关于我们"></u-cell-item>
 			</u-cell-group>
 		</view>
 		<view class="button">
@@ -35,7 +35,11 @@
 	</view>
 </template>
 <script>
-	import {mapState,mapMutations,mapAction } from 'vuex'
+	import {
+		mapState,
+		mapMutations,
+		mapAction
+	} from 'vuex'
 
 	export default {
 		data() {
@@ -45,79 +49,84 @@
 			}
 		},
 		async onLoad() {
-			const user =await this.$u.api.getuser()
+			const user = await this.$u.api.getuser()
 			// 将用户信息保存到vuex
-			this.$store.commit('SETUSER',user)
+			this.$store.commit('SETUSER', user)
 			// this.user=this.$store.state.userInfo
-			
+
 		},
-		computed:{
-				...mapState({user:'userInfo'})
+		computed: {
+			...mapState({
+				user: 'userInfo'
+			})
 		},
 		methods: {
 			//前往个人信息页面
-			toInfo(){
+			toInfo() {
 				this.$router.push({
-					name:'baseInfo',
-					params:{
-						b:"666"
+					name: 'baseInfo',
+					params: {
+						b: "666"
 					}
 				})
 			},
 			// 退出登录
-			 out(){
+			out() {
 				uni.showModal({
-					content:'是否退出登录',
-					success:async (res)=>{
+					content: '登录',
+					success: async (res) => {
 						if (res.confirm) {
-									await this.$u.api.logout()
-									uni.removeStorageSync('token')
-									uni.showToast({
-										title:'退出登录成功',
-										icon:'none'
-									})
-									setTimeout(()=>{
-										uni.reLaunch({
-											url:'/pages/index/index'
-										})
-									},1000)
-								} 
+							await this.$u.api.logout()
+							uni.removeStorageSync('token')
+							uni.showToast({
+								title: '退出登录成功',
+								icon: 'none'
+							})
+							setTimeout(() => {
+								uni.reLaunch({
+									url: '/pages/index/index'
+								})
+							}, 1000)
+						}
 					}
 				})
-				
+
 			}
-			
+
 		}
 	}
 </script>
 
 <style lang="scss">
-page{
-	background-color: #ededed;
-}
-.button{
-	// margin-top: 20rpx;
-	width: 90%;
-	margin: 25rpx auto;
-	// margin-top: 10rpx;
-	// margin-bottom: 400rpx !important;
-}
-.avimg{
-	// border: 50%;
-	width: 140rpx;
-	height: 140rpx;
-	// box-shadow: ;
-	border-radius: 50%;
-}
-.avimg img{
-	// border: 50%;
-	width: 140rpx;
-	height: 140rpx;
-	// box-shadow: ;
-	border-radius: 50%;
-}
+	page {
+		background-color: #ededed;
+	}
 
-.user-box{
-	background-color: #fff;
-}
+	.button {
+		// margin-top: 20rpx;
+		width: 90%;
+		margin: 25rpx auto;
+		// margin-top: 10rpx;
+		// margin-bottom: 400rpx !important;
+	}
+
+	.avimg {
+		// border: 50%;
+		width: 140rpx;
+		height: 140rpx;
+		// box-shadow: ;
+		border-radius: 50%;
+	}
+
+	.avimg img {
+		// border: 50%;
+		width: 140rpx;
+		height: 140rpx;
+		// box-shadow: ;
+		border-radius: 50%;
+	}
+
+	.user-box {
+		background-color: #fff;
+	}
 </style>

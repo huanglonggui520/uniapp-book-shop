@@ -1,0 +1,25 @@
+
+.loading.data-v-57280228 {
+	/* margin-top: 20rpx; */
+	/* margin: 0rpx auto; */
+	font-size: 32rpx;
+	color: darkgrey;
+	/* height: 100px; */
+	/* transform: t; */
+	/* margin-bottom: 100rpx; */
+	margin-left: 40%;
+	/* margin-bottom: 100px; */
+	/* transform: translateX(-50%); */
+	/* width: 1; */
+}
+.content.data-v-57280228 {
+	margin-bottom: 10rpx;
+}
+.sticky.data-v-57280228 {
+	width: 750rpx;
+	height: 120rpx;
+	background-color: #2979ff;
+	color: #fff;
+	padding: 24rpx;
+}
+

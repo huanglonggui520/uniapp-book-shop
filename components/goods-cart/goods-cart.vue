@@ -19,6 +19,7 @@
 </template>
 
 <script>
+	// const _this
 	export default {
 		name:"goods-cart",
 		props:{
@@ -29,13 +30,17 @@
 				}
 			}
 		},
+		
 		methods:{
 				goshop(){
-					this.$router.push({
-						path:'/pages/details/details',
-						query:{
-							id:this.item.id
-						}
+					// this.$router.push({
+					// 	path:'/pages/details/details',
+					// 	query:{
+					// 		id:this.item.id
+					// 	}
+					// })
+					uni.navigateTo({
+						url:'/pages/details/details'
 					})
 				}
 		},

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "订单预览",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-cell-group": "/uview-ui/components/u-cell-group/u-cell-group",
+    "u-cell-item": "/uview-ui/components/u-cell-item/u-cell-item",
+    "u-image": "/uview-ui/components/u-image/u-image",
+    "u-button": "/uview-ui/components/u-button/u-button"
+  }
+}

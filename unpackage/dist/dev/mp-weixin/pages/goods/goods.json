@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "分类",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-search": "/uview-ui/components/u-search/u-search",
+    "u-empty": "/uview-ui/components/u-empty/u-empty",
+    "u-image": "/uview-ui/components/u-image/u-image"
+  }
+}

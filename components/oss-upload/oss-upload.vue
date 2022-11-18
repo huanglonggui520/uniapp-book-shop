@@ -47,6 +47,7 @@
 		},
 		methods: {
 					async beforeUpload(index, list) {
+						console.log(list)
 						// 只上传偶数索引的文件
 						// 获取上传到oss的参数
 						// 条件编译，如果在H5端，上传文件名字在file里，则在list.name取
@@ -55,7 +56,7 @@
 						// #endif
 						// 如果不是H5则在path里取
 						// #ifndef H5
-						const filename=list[0].path.name
+						const filename=list[0].file.path
 						// #endif
 						const fullname=filename.slice(filename.lastIndexOf('.'))
 						// console.log(fullname)
